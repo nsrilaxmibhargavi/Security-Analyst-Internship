@@ -1,129 +1,97 @@
 # Task 9 – SQL Injection Exploitation on DVWA
 
-This task demonstrates how an SQL Injection vulnerability in **DVWA (Damn Vulnerable Web Application)** can be discovered, exploited, and patched. The goal was to inject malicious SQL into a vulnerable input field and extract sensitive information from the backend database inside a controlled lab.
+This task focuses on identifying and exploiting an SQL Injection vulnerability inside DVWA, a vulnerable training application used for learning web security. All testing was done in a controlled lab environment.
 
 ---
 
 ## 🎯 Objective
-- Find an SQL Injection vulnerability in DVWA  
-- Exploit the vulnerable `id` parameter to dump database contents  
-- Automate the attack using a bash script  
-- Document the exploit and recommended fixes  
+- Find an SQL Injection weakness in DVWA  
+- Use it to extract information from the database  
+- Test the behavior across Low, Medium, and High security levels  
+- Document the results and explain how the issue can be fixed  
 
 ---
 
 ## 🛠 Tools Used
 - DVWA (Damn Vulnerable Web Application)  
-- Kali Linux (VirtualBox VM)  
+- Kali Linux  
 - Burp Suite Community Edition  
-- Apache Web Server  
-- Bash + cURL  
+- Web Browser  
 
 ---
 
 ## 🧪 Lab Setup
-- DVWA running at: `http://10.0.2.8/`  
-- Logged in with: Username: admin
-Password: password
-
-- Tested on DVWA Security Levels: Low, Medium, High  
-- Focused entirely on the **SQL Injection** module  
+- DVWA was hosted locally inside a virtual machine  
+- Logged in using admin credentials  
+- Switched between Low, Medium, and High security settings  
+- Performed testing inside the SQL Injection module  
 
 ---
 
 ## 📝 What I Did
-- Identified the vulnerable `id` input in the SQL Injection page  
-- Injected test payloads such as:
-1'
-1' --
-1' OR '1'='1
-
-- Confirmed SQL Injection using a UNION payload:
-1' UNION SELECT user, password FROM users# --
-
-- Used Burp Suite Repeater to refine the request
-
-- Retrieved usernames and password hashes for:
-- admin  
-- gordonb  
-- 1337  
-- pablo  
-- smithy  
-- Captured results at different security levels:
-- LOW SECURITY RESULT.png  
-- MEDIUM SECURITY RESULT.png  
-- HIGH SECURITY RESULT.png  
+- Found a user input field that interacts with the backend database  
+- Identified how the application responded to different inputs  
+- Used Burp Suite to replay and adjust requests  
+- Retrieved user information from the database in Low and Medium security modes  
+- Observed stronger protection in High security mode  
+- Saved screenshots for all three test levels  
 
 ---
 
 ## 📊 Attack Summary
-DVWA uses a vulnerable SQL query similar to:
-
-```php
-$id = $_GET['id'];
-$query = "SELECT first_name, last_name FROM users WHERE user_id = '$id'";
-
-- Successfully retrieved usernames and password hashes from the vulnerable database  
-- Used **Burp Suite** Repeater to manually test, modify, and replay SQLi payloads  
-- Captured screenshots of results across different security levels  
-- Analyzed how DVWA filters change between Low, Medium, and High  
-- Documented the root cause of the vulnerability and explained how to patch it  
+- In **Low security**, the application accepts any input and reveals database information  
+- In **Medium security**, basic filtering is applied but still bypassable  
+- In **High security**, protection is much stronger and prevents the attack  
+- Differences between the levels show how secure coding impacts real applications  
 
 ---
 
 ## 📚 Exploit Summary
 
-### **• Low Security**
-- User input is not sanitized  
-- Payloads are executed directly on the database  
-- Full user table can be extracted easily  
+### Low Security
+- No filtering  
+- Full database details exposed  
 
-### **• Medium Security**
-- Basic filtering is applied  
-- Input validation can still be bypassed using altered or encoded payloads  
-- SQL injection is still possible with minor adjustments  
+### Medium Security
+- Some filtering  
+- Still vulnerable with modified inputs  
 
-### **• High Security**
-- Stronger filtering and use of safer SQL handling  
-- SQL injection becomes very hard or fully blocked  
-- Represents proper security implementation  
+### High Security
+- Strong filtering  
+- Attack mostly prevented  
 
-### **• Data Extracted**
-Using SQL injection, the following were retrieved:
-
+### Data Extracted
 - Usernames  
-- MD5 password hashes  
-- Full user table results
-
-Screenshots display successful exploitation across Low, Medium, and High security modes.
+- Password hashes  
+- Complete user list (Low & Medium security)
 
 ---
 
 ## 📂 Files Included
-- **sql_injection_exploit.sh** – Automated SQL injection script  
-- **README.md** – Complete explanation of the SQL injection attack and mitigation  
-- **Screenshots** – Low, Medium, and High security outputs  
-- *(Optional)* Burp Suite Repeater request/response captures  
+- `sql_injection_exploit.sh` – Script used for automated testing  
+- `README.md` – Documentation of the entire task  
+- Screenshots for Low, Medium, and High security modes  
+- Optional Burp Suite request/response captures  
 
 ---
 
 ## 🖼 Screenshots
 Medium Security Result:  
-![image alt](https://github.com/nsrilaxmibhargavi/Security-Analyst-Internship/blob/bcfa4af0207a4a3c3db941d77abc05e7f9a4dbb2/TASK-9/MEDIUM%20SECURITY%20RESULT.png)
+![image](https://github.com/nsrilaxmibhargavi/Security-Analyst-Internship/blob/main/TASK-9/MEDIUM%20SECURITY%20RESULT.png)
 
 High Security Result:  
-![image alt](https://github.com/nsrilaxmibhargavi/Security-Analyst-Internship/blob/bcfa4af0207a4a3c3db941d77abc05e7f9a4dbb2/TASK-9/HIGH%20SECURITY%20RESULT.png)
+![image](https://github.com/nsrilaxmibhargavi/Security-Analyst-Internship/blob/main/TASK-9/HIGH%20SECURITY%20RESULT.png)
 
 ---
 
 ## 🎥 Demo Video
-Exploit demonstration video:  
+Full demonstration video:  
 **<paste your YouTube link here>**
 
 ---
 
 ## 💡 Key Takeaways
-- SQL Injection occurs when unsafe user input is included directly in SQL queries  
-- UNION-based SQLi can reveal additional database tables and sensitive data  
-- DVWA provides a safe environment to explore real-world vulnerabilities  
-- Prepared statements, sanitization, and strict validation effectively prevent SQL injection  
+- Applications must validate and sanitize all user input  
+- Different security levels demonstrate how vulnerabilities can be prevented  
+- Proper coding practices protect applications from data exposure  
+- SQL Injection remains one of the most common and dangerous web vulnerabilities  
