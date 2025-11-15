@@ -56,7 +56,7 @@ The page then displayed the IDs, usernames, and password hashes returned by the 
 
 ## 🎥 Demo Video
 Full demonstration video:  
-**<[Youtube Link](https://youtu.be/XnuvrV8838o)>**
+**[Youtube Link](https://youtu.be/XnuvrV8838o)**
 
 ---
 
