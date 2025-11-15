@@ -109,11 +109,11 @@ Screenshots show results for Low, Medium, and High security settings.
 
 ## 🖼 Screenshots
 Medium Security Result:
-
+![image alt](https://github.com/nsrilaxmibhargavi/Security-Analyst-Internship/blob/bcfa4af0207a4a3c3db941d77abc05e7f9a4dbb2/TASK-9/MEDIUM%20SECURITY%20RESULT.png)
 
 
 High Security Result:
-
+![image alt](https://github.com/nsrilaxmibhargavi/Security-Analyst-Internship/blob/bcfa4af0207a4a3c3db941d77abc05e7f9a4dbb2/TASK-9/HIGH%20SECURITY%20RESULT.png)
 
 ## 🎥 Demo Video
 Exploit demonstration video:  
