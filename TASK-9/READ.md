@@ -80,40 +80,41 @@ $query = "SELECT first_name, last_name FROM users WHERE user_id = '$id'";
 
 ### **• Medium Security**
 - Basic filtering is applied  
-- However, input validation is still bypassable using encoded or modified payloads  
-- SQLi remains possible with slight tuning  
+- Input validation can still be bypassed using altered or encoded payloads  
+- SQL injection is still possible with minor adjustments  
 
 ### **• High Security**
-- More robust filtering and prepared statements  
-- SQLi becomes very difficult or blocked entirely  
-- Demonstrates proper security practices  
+- Stronger filtering and use of safer SQL handling  
+- SQL injection becomes very hard or fully blocked  
+- Represents proper security implementation  
 
 ### **• Data Extracted**
-Using SQL injection, I retrieved:
+Using SQL injection, the following were retrieved:
 
 - Usernames  
 - MD5 password hashes  
-- Full user table output
+- Full user table results
 
-Screenshots show results for Low, Medium, and High security settings.
+Screenshots display successful exploitation across Low, Medium, and High security modes.
 
 ---
 
 ## 📂 Files Included
-- **sql_injection_exploit.sh** – Automated script used to perform SQL injection on DVWA  
-- **README.md** – Complete explanation of the exploit and remediation  
-- **Screenshots** of Low, Medium, and High security tests  
-- *(Optional)* Burp Suite Repeater capture images  
+- **sql_injection_exploit.sh** – Automated SQL injection script  
+- **README.md** – Complete explanation of the SQL injection attack and mitigation  
+- **Screenshots** – Low, Medium, and High security outputs  
+- *(Optional)* Burp Suite Repeater request/response captures  
 
 ---
 
 ## 🖼 Screenshots
-Medium Security Result:
+Medium Security Result:  
 ![image alt](https://github.com/nsrilaxmibhargavi/Security-Analyst-Internship/blob/bcfa4af0207a4a3c3db941d77abc05e7f9a4dbb2/TASK-9/MEDIUM%20SECURITY%20RESULT.png)
 
-
-High Security Result:
+High Security Result:  
 ![image alt](https://github.com/nsrilaxmibhargavi/Security-Analyst-Internship/blob/bcfa4af0207a4a3c3db941d77abc05e7f9a4dbb2/TASK-9/HIGH%20SECURITY%20RESULT.png)
+
+---
 
 ## 🎥 Demo Video
 Exploit demonstration video:  
@@ -122,7 +123,7 @@ Exploit demonstration video:
 ---
 
 ## 💡 Key Takeaways
-- SQL Injection happens when unsafe input reaches SQL queries.
-- UNION-based SQLi allows attackers to read data from other tables.
-- DVWA mimics real-world vulnerabilities found in modern web apps.
-- Prepared statements and strict input validation eliminate SQLi risks.
+- SQL Injection occurs when unsafe user input is included directly in SQL queries  
+- UNION-based SQLi can reveal additional database tables and sensitive data  
+- DVWA provides a safe environment to explore real-world vulnerabilities  
+- Prepared statements, sanitization, and strict validation effectively prevent SQL injection  
