@@ -1,0 +1,15 @@
+Starting Nmap 7.95 ( https://nmap.org ) 
+Nmap scan report for 47.246.174.135
+Host is up (0.052s latency).
+Not shown: 998 filtered tcp ports (no-response)
+
+PORT    STATE  SERVICE   VERSION
+80/tcp  open   http      Tengine httpd Aserver
+443/tcp open   ssl/http  Tengine httpd Aserver
+
+Warning: OSScan results may be unreliable because we could not find at least one closed TCP port.
+OS fingerprint not ideal because: Missing a closed TCP port so results may be inaccurate.
+No OS matches for host.
+
+OS and Service detection performed.
+Nmap done: 1 IP address (1 host up) scanned in 35.88 seconds
