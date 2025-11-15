@@ -60,7 +60,7 @@ These findings help administrators understand risks and reinforce server-side pr
 
 ## 🎥 Demo Video
 Vulnerability Scanning with Nikto:  
-**<paste your YouTube link here>**
+**[Youtube Link](https://youtu.be/spZ8515KltI)**
 
 ---
 
